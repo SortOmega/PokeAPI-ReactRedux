@@ -1,0 +1,125 @@
+@mixin flexBox() {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  height: min-content;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --PokeBlue: #00108b;
+  --PokeBrown: #772929;
+  --PokeWhite: #ffffff;
+}
+
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#root {
+  @include flexBox();
+  align-items: start;
+  background: #303030;
+  color: #ffffffff;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    height: 100%;
+  }
+
+  #App__Title {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10pt 0;
+    > img,
+    h1 {
+      padding: 5pt 0;
+    }
+
+    > hr {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 0px) and (max-width: 360px) {
+      > img {
+        width: 80%;
+      }
+
+      > h1 {
+        font-size: 20px;
+      }
+    }
+    @media screen and (min-width: 360px) and (max-width: 760px) {
+      > img {
+        width: 60%;
+      }
+
+      > h1 {
+        font-size: 30px;
+      }
+    }
+  }
+
+  #App__List {
+    display: flex;
+    min-width: 90%;
+    > ul {
+      width: 100%;
+      height: min-content;
+      list-style: none;
+      display: grid;
+      @media screen and (min-width: 0px) and (max-width: 290px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      @media screen and (min-width: 290px) and (max-width: 400px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media screen and (min-width: 400px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      gap: 5pt;
+      padding: 30px 0;
+
+      span {
+        @media screen and (min-width: 0px) and (max-width: 290px) {
+          font-size: 16px;
+        }
+        @media screen and (min-width: 290px) and (max-width: 350px) {
+          font-size: 9px;
+        }
+        @media screen and (min-width: 350px) and (max-width: 400px) {
+          font-size: 10px;
+        }
+        @media screen and (min-width: 400px) and (max-width: 480px) {
+          font-size: 9px;
+        }
+        @media screen and (min-width: 480px) and (max-width: 560px) {
+          font-size: 10px;
+        }
+        @media screen and (min-width: 560px) and (max-width: 760px) {
+          font-size: 12px;
+        }
+        @media screen and (min-width: 760px) and (max-width: 860px) {
+          font-size: 14px;
+        }
+        @media screen and (min-width: 860px) and (max-width: 1460px) {
+          font-size: 16px;
+        }
+        @media screen and (min-width: 1440px) {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
