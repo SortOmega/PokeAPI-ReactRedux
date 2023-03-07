@@ -9,10 +9,10 @@ export const PokePaginationStyled = styled.div`
   align-items: center;
   font-size: 16px;
 
-  @media screen and (min-width: 0px) and (max-width: 440px) {
+  @media screen and (min-width: 0px) and (max-width: 520px) {
     flex-direction: column;
   }
-  @media screen and (min-width: 440px) {
+  @media screen and (min-width: 520px) {
     flex-direction: row;
   }
 

@@ -8,16 +8,39 @@
 }
 
 :root {
+  --PokeTurquoiseXD: #003a3b;
+  --PokeTurquoiseSD: #005253;
+  --PokeTurquoiseD: #006f70;
+  --PokeTurquoise: #009a9d;
   --PokeBlue: #00108b;
   --PokeBlueL: #003494;
   --PokeBlueSL: #306090; // Light Blue
-  --PokeBrown: #772929;
+  --PokeBrown: #651f1f;
   --PokeWhite: #ffffff;
   --PokeGrayWhite: #e4e4e4;
   --PokeDark: #262626; // Black 60%
   --PokeGray: #727272; // Gray
   --PokeGrayD: #414141; // Dark Gray
   --PokeGrayL: #8c8c8c; //Light Gray
+
+  --PokeType-normal: #a8a77a;
+  --PokeType-fire: #ee8130;
+  --PokeType-water: #6390f0;
+  --PokeType-electric: #f7d02c;
+  --PokeType-grass: #7ac74c;
+  --PokeType-ice: #96d9d6;
+  --PokeType-fighting: #c22e28;
+  --PokeType-poison: #a33ea1;
+  --PokeType-ground: #e2bf65;
+  --PokeType-flying: #a98ff3;
+  --PokeType-psychic: #f95587;
+  --PokeType-bug: #a6b91a;
+  --PokeType-rock: #b6a136;
+  --PokeType-ghost: #735797;
+  --PokeType-dragon: #6f35fc;
+  --PokeType-dark: #705746;
+  --PokeType-steel: #b7b7ce;
+  --PokeType-fairy: #d685ad;
 }
 
 *,

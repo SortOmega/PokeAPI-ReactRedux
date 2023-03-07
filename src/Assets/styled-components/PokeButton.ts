@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const PokeButton = styled.button`
   --rad: 12px;
-  background: var(--PokeBlue);
+  background: var(--PokeTurquoiseD);
   color: var(--PokeWhite);
   width: 115px;
   height: 55px;
@@ -17,7 +17,7 @@ export const PokeButton = styled.button`
 
   &:active {
     border: 2px inset var(--PokeGrayD);
-    background: var(--PokeBlueL);
+    background: var(--PokeTurquoise);
     color: var(--PokeGrayWhite);
   }
 
