@@ -10,11 +10,8 @@ export interface PokemonBoxProps extends PokeContainerProps {
 }
 
 const PokemonBox = (props: PokemonBoxProps) => {
-  const PokeURL =
-    typeof props.pokemonURL !== 'undefined'
-      ? props.pokemonURL?.slice(25)
-      : null;
-  console.log(PokeURL);
+  const PokeURL = typeof props.pokemonURL !== 'undefined' ? props.pokemonURL?.slice(25) : null;
+  //console.log(PokeURL);
 
   const PokemonInitState: PokemonResponse = {
     id: 0,

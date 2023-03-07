@@ -5,7 +5,7 @@ import type { PokePageIndexResponse, PokemonURL } from '#/Assets/Types/Pokemon';
 
 interface pokemonStates {
   page: number;
-  pokemons?: PokemonURL[];
+  pokemons: PokemonURL[];
   isLoading?: boolean;
   error?: null | string;
 }
@@ -33,9 +33,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(getPokemons.pending, (_state, _action) => {
         _state.isLoading = true;
+        _state.pokemons = [];
       })
-      .addCase(getPokemons.fulfilled, (_state, _action: PayloadAction<PokePageIndexResponse>) => {
-        _state.isLoading = false;
+      .addCase(getPokemons.fulfilled, (state, action: PayloadAction<PokePageIndexResponse>) => {
+        state.isLoading = false;
+        state.pokemons = action.payload.results;
       })
       .addCase(getPokemons.rejected, (_state, _action: PayloadAction<any>) => {
         _state.isLoading = false;

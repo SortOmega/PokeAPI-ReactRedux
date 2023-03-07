@@ -40,7 +40,7 @@ export const PokeContainer = styled.li<PokeContainerProps>`
         width: 100%;
         display: grid;
         gap: 20px;
-        grid-template-columns: 15% 1fr;
+        grid-template-columns: max-content 1fr;
 
         > .PokeInfo {
           text-transform: capitalize;
