@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from '#/Hooks/useTypedSelector';
 import { getPokemons } from '#/ReduxStore/Slices/Pokemon';
 import { useEffect } from 'react'; //*/
+import PokePagination from './PokePagination';
 import PokemonBox from './PokemonBox';
 
 const PokemonList = () => {
@@ -26,6 +27,7 @@ const PokemonList = () => {
 
   return (
     <div id='App__List'>
+      <PokePagination />
       {isLoading || pokemons.length === 0 ? (
         <h3 className='EmptyList'>La lista de Pokemons esta vacia</h3>
       ) : (

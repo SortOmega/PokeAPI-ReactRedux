@@ -60,7 +60,12 @@ export const PokeContainer = styled.li<PokeContainerProps>`
         gap: 5px;
         height: 100%;
         align-items: center;
-        justify-content: start;
+        @media screen and (min-width: 0px) and (max-width: 860px) {
+          justify-content: center;
+        }
+        @media screen and (min-width: 860.1px) {
+          justify-content: start;
+        }
       }
     }
 

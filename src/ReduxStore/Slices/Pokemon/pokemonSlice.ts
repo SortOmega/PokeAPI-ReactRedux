@@ -4,8 +4,8 @@ import type { PokePageIndexResponse, PokemonURL } from '#/Assets/Types/Pokemon';
 //import type { PayloadAction } from '@reduxjs/toolkit'; //For Typescript //
 
 interface pokemonStates {
-  page?: number;
-  pokemons: PokemonURL[];
+  page: number;
+  pokemons?: PokemonURL[];
   isLoading?: boolean;
   error?: null | string;
 }
@@ -34,12 +34,9 @@ export const pokemonSlice = createSlice({
       .addCase(getPokemons.pending, (_state, _action) => {
         _state.isLoading = true;
       })
-      .addCase(
-        getPokemons.fulfilled,
-        (_state, _action: PayloadAction<PokePageIndexResponse>) => {
-          _state.isLoading = false;
-        }
-      )
+      .addCase(getPokemons.fulfilled, (_state, _action: PayloadAction<PokePageIndexResponse>) => {
+        _state.isLoading = false;
+      })
       .addCase(getPokemons.rejected, (_state, _action: PayloadAction<any>) => {
         _state.isLoading = false;
         _state.error = _action.payload;

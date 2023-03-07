@@ -9,8 +9,15 @@
 
 :root {
   --PokeBlue: #00108b;
+  --PokeBlueL: #003494;
+  --PokeBlueSL: #306090; // Light Blue
   --PokeBrown: #772929;
   --PokeWhite: #ffffff;
+  --PokeGrayWhite: #e4e4e4;
+  --PokeDark: #262626; // Black 60%
+  --PokeGray: #727272; // Gray
+  --PokeGrayD: #414141; // Dark Gray
+  --PokeGrayL: #8c8c8c; //Light Gray
 }
 
 *,
@@ -73,7 +80,10 @@
 
   #App__List {
     display: flex;
+    gap: 10px;
+    flex-direction: column;
     min-width: 90%;
+    padding: 30px 0;
     > ul {
       width: 100%;
       height: min-content;
