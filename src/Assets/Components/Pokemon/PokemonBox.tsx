@@ -15,6 +15,7 @@ const PokemonBox = (props: PokemonBoxProps) => {
 
   const PokemonInitState: PokemonResponse = {
     id: 0,
+    order: 0,
     name: '',
     sprites: {
       front_default: '',

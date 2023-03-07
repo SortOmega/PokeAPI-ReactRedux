@@ -31,6 +31,7 @@ export type PokemonType =
 
 export type PokemonResponse = {
   id: number;
+  order: number;
   name: string;
   sprites: Sprites;
   types: Type[];

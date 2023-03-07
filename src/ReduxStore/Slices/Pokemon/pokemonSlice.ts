@@ -1,11 +1,12 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { getPokemons } from '.';
+import { getPokemons, getTotalPokemons } from '.';
 import type { PokePageIndexResponse, PokemonURL } from '#/Assets/Types/Pokemon';
 //import type { PayloadAction } from '@reduxjs/toolkit'; //For Typescript //
 
 interface pokemonStates {
   page: number;
   pokemons: PokemonURL[];
+  totalPokemons: number;
   isLoading?: boolean;
   error?: null | string;
 }
@@ -13,6 +14,7 @@ interface pokemonStates {
 const initialState: pokemonStates = {
   page: 0,
   pokemons: [],
+  totalPokemons: 0,
   isLoading: false,
 };
 
@@ -23,6 +25,10 @@ export const pokemonSlice = createSlice({
     startLoadingPokemons: (state) => {
       state.isLoading = true;
     },
+
+    setTotalPokemons: (state, action: PayloadAction<number>) => {
+      state.totalPokemons = action.payload;
+    },
     setPokemons: (state, action: PayloadAction<pokemonStates>) => {
       state.isLoading = false;
       state.page = action.payload.page;
@@ -31,6 +37,7 @@ export const pokemonSlice = createSlice({
   },
   extraReducers(builder) {
     builder
+      // METHOD: getPokemons -----------------------------------------------------------
       .addCase(getPokemons.pending, (_state, _action) => {
         _state.isLoading = true;
         _state.pokemons = [];
@@ -42,8 +49,13 @@ export const pokemonSlice = createSlice({
       .addCase(getPokemons.rejected, (_state, _action: PayloadAction<any>) => {
         _state.isLoading = false;
         _state.error = _action.payload;
+      })
+
+      // METHOD: getTotalPokemons -----------------------------------------------------------
+      .addCase(getTotalPokemons.fulfilled, (state, action: PayloadAction<number>) => {
+        state.totalPokemons = action.payload;
       });
   },
 });
 
-export const { startLoadingPokemons, setPokemons } = pokemonSlice.actions;
+export const { startLoadingPokemons, setPokemons, setTotalPokemons } = pokemonSlice.actions;

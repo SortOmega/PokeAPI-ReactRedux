@@ -23,12 +23,15 @@ export const PokePaginationStyled = styled.div`
   }
 
   label,
-  input#pokePage {
+  input#pokePage,
+  span {
     font-size: 16px;
   }
 
-  label {
+  label,
+  span {
     display: flex;
+    user-select: none;
   }
 
   input#pokePage {
@@ -39,6 +42,7 @@ export const PokePaginationStyled = styled.div`
     width: 75px;
     height: 35px;
     text-align: center;
+    user-select: all;
 
     background: var(--PokeGrayD);
     border: 1px inset var(--PokeGray);
