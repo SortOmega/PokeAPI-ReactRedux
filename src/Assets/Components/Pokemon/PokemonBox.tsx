@@ -1,4 +1,4 @@
-import { PokemonResponse, PokemonType } from '#/Assets/Types/Pokemon';
+import { PokemonResponse } from '#/Assets/Types/Pokemon';
 import { PokeContainer } from '#/Assets/styled-components/PokeContainer';
 import type { PokeContainerProps } from '#/Assets/styled-components/PokeContainer';
 import { useEffect, useState } from 'react';

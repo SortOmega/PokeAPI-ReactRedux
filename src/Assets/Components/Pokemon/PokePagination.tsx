@@ -14,11 +14,14 @@ const PokePagination = () => {
   const dispatcher = useAppDispatch();
 
   const setPages = () => {
-    const Pages =
-      totalPokemons % 12 === 0
-        ? Math.floor(totalPokemons / 12)
-        : Math.floor(totalPokemons / 12) + 1;
-    return Pages;
+    if (totalPokemons !== undefined) {
+      const Pages =
+        totalPokemons % 12 === 0
+          ? Math.floor(totalPokemons / 12)
+          : Math.floor(totalPokemons / 12) + 1;
+      return Pages;
+    }
+    return 1;
   };
   const totalPages = setPages();
 

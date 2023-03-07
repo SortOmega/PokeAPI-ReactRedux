@@ -6,7 +6,7 @@ import type { PokePageIndexResponse, PokemonURL } from '#/Assets/Types/Pokemon';
 interface pokemonStates {
   page: number;
   pokemons: PokemonURL[];
-  totalPokemons: number;
+  totalPokemons?: number;
   isLoading?: boolean;
   error?: null | string;
 }
