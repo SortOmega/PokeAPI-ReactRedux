@@ -11,7 +11,7 @@ const PokemonList = () => {
   const { pokemons, isLoading } = useAppSelector((state) => state.pokemons);
   const Dispatcher = useAppDispatch();
   useEffect(() => {
-    Dispatcher(getPokemons({ page: 0 }));
+    Dispatcher(getPokemons({ page: 1 }));
   }, []);
   // ---------- -------------------- ---------- //
   // ---------- HANDLE ACTION EVENTS ---------- //

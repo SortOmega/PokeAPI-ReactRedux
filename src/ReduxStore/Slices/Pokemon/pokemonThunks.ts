@@ -9,7 +9,7 @@ export const getPokemons = createAsyncThunk<PokePageIndexResponse, { page: numbe
   async (data, thunkApi) => {
     try {
       const resp = await PokemonAPI.get<PokePageIndexResponse>(
-        `/pokemon?limit=12&offset=${data.page * 12}`
+        `/pokemon?limit=12&offset=${(data.page - 1) * 12}`
       );
       thunkApi.dispatch(setPokemons({ pokemons: resp.data.results, page: data.page }));
       return resp.data;

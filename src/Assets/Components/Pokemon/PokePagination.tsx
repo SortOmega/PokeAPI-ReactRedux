@@ -21,11 +21,11 @@ const PokePagination = () => {
     dispatcher(getPokemons({ page: page + 1 }));
   };
   const PrevPageHandler: MouseEventHandler = (_event) => {
-    if (page > 0) dispatcher(getPokemons({ page: page - 1 }));
+    if (page > 1) dispatcher(getPokemons({ page: page - 1 }));
   };
   const InputChangeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
     const newPage = parseInt(event.target.value);
-    if (newPage >= 0) dispatcher(getPokemons({ page: newPage }));
+    if (newPage >= 1) dispatcher(getPokemons({ page: newPage }));
   }; //*/
 
   // ---------- ---------------- ---------- //
