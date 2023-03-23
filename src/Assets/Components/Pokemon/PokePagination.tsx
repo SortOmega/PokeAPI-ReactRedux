@@ -1,4 +1,4 @@
-import { ChangeEventHandler, MouseEventHandler } from 'react'; //*/
+import { ChangeEventHandler, MouseEventHandler, useEffect, useState } from 'react'; //*/
 
 import { PokeButton } from '#/Assets/styled-components/PokeButton';
 import { PokePaginationStyled } from '#/Assets/styled-components/PokePaginationStyled';
@@ -11,6 +11,8 @@ const PokePagination = () => {
   // ---------- -------------- ---------- //
   /*const [state, setState] = useState<unknown>();//*/
   const { page, totalPokemons } = useAppSelector((state) => state.pokemons);
+  const [inputPageValue, setInputPageValue] = useState(page.toString());
+
   const dispatcher = useAppDispatch();
 
   const setPages = () => {
@@ -25,19 +27,45 @@ const PokePagination = () => {
   };
   const totalPages = setPages();
 
+  useEffect(() => {
+    setInputPageValue(page.toString());
+  }, [page]);
+
   // ---------- -------------------- ---------- //
   // ---------- HANDLE ACTION EVENTS ---------- //
   // ---------- -------------------- ---------- //
 
   const NextPageHandler: MouseEventHandler = (_event) => {
-    if (page < totalPages) dispatcher(getPokemons({ page: page + 1 }));
+    if (page < totalPages) {
+      dispatcher(getPokemons({ page: page + 1 }));
+    }
   };
   const PrevPageHandler: MouseEventHandler = (_event) => {
-    if (page > 1) dispatcher(getPokemons({ page: page - 1 }));
+    if (page > 1) {
+      dispatcher(getPokemons({ page: page - 1 }));
+    }
   };
+
+  const searchPageHandler: MouseEventHandler = (_event) => {
+    const Reset = () => {
+      setInputPageValue(page.toString());
+      return;
+    };
+
+    if (inputPageValue === '') Reset();
+
+    const newPage = parseInt(inputPageValue);
+
+    if (isNaN(newPage)) Reset();
+
+    if (newPage >= 1 && newPage <= totalPages) {
+      //setInputPageValue(page.toString());
+      dispatcher(getPokemons({ page: newPage }));
+    } else Reset();
+  }; //*/
+
   const InputChangeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
-    const newPage = parseInt(event.target.value);
-    if (newPage >= 1 && newPage <= totalPages) dispatcher(getPokemons({ page: newPage }));
+    setInputPageValue(event.target.value);
   }; //*/
 
   // ---------- ---------------- ---------- //
@@ -54,14 +82,19 @@ const PokePagination = () => {
             name='pokePage'
             id='pokePage'
             inputMode='numeric'
-            value={page}
+            value={inputPageValue}
             onChange={InputChangeHandler}
           />
           <span className='TotalPages'>of {totalPages}</span>
         </div>
+        <PokeButton onClick={searchPageHandler}>Search Page</PokeButton>
         <div className='PageActions'>
-          <PokeButton onClick={PrevPageHandler}>Previus Page</PokeButton>
-          <PokeButton onClick={NextPageHandler}>Next Page</PokeButton>
+          <PokeButton inPairs onClick={PrevPageHandler}>
+            Previus Page
+          </PokeButton>
+          <PokeButton inPairs onClick={NextPageHandler}>
+            Next Page
+          </PokeButton>
         </div>
       </PokePaginationStyled>
     </>

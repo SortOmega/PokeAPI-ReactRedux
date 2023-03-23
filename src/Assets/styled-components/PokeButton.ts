@@ -1,11 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const PokeButton = styled.button`
+type PokeButtonProps = {
+  inPairs?: boolean;
+};
+
+export const PokeButton = styled.button<PokeButtonProps>`
   --rad: 12px;
   background: var(--PokeTurquoiseD);
   color: var(--PokeWhite);
   width: 115px;
-  height: 55px;
+  height: 45px;
   padding: 6px;
   font-size: 12px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -21,11 +25,19 @@ export const PokeButton = styled.button`
     color: var(--PokeGrayWhite);
   }
 
-  &:nth-child(odd) {
-    border-radius: var(--rad) 0 0 var(--rad);
-  }
+  ${(props) => css`
+    ${!props.inPairs
+      ? css`
+          border-radius: var(--rad);
+        `
+      : css`
+          &:nth-child(odd) {
+            border-radius: var(--rad) 0 0 var(--rad);
+          }
 
-  &:nth-child(even) {
-    border-radius: 0 var(--rad) var(--rad) 0;
-  }
+          &:nth-child(even) {
+            border-radius: 0 var(--rad) var(--rad) 0;
+          }
+        `}
+  `}
 `;

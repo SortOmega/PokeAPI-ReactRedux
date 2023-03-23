@@ -4,15 +4,14 @@ export const PokePaginationStyled = styled.div`
   display: flex;
   gap: 20px;
   width: 100%;
-  height: 55px;
   justify-content: center;
   align-items: center;
   font-size: 16px;
 
-  @media screen and (min-width: 0px) and (max-width: 520px) {
+  @media screen and (min-width: 0px) and (max-width: 670px) {
     flex-direction: column;
   }
-  @media screen and (min-width: 520px) {
+  @media screen and (min-width: 670px) {
     flex-direction: row;
   }
 
