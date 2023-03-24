@@ -15,6 +15,14 @@ const PokePagination = () => {
 
   const dispatcher = useAppDispatch();
 
+  useEffect(() => {
+    setInputPageValue(page.toString());
+  }, [page]);
+
+  // ---------- -------------------- ---------- //
+  // ---------- HANDLE ACTION EVENTS ---------- //
+  // ---------- -------------------- ---------- //
+
   const setPages = () => {
     if (totalPokemons !== undefined) {
       const Pages =
@@ -26,14 +34,6 @@ const PokePagination = () => {
     return 1;
   };
   const totalPages = setPages();
-
-  useEffect(() => {
-    setInputPageValue(page.toString());
-  }, [page]);
-
-  // ---------- -------------------- ---------- //
-  // ---------- HANDLE ACTION EVENTS ---------- //
-  // ---------- -------------------- ---------- //
 
   const NextPageHandler: MouseEventHandler = (_event) => {
     if (page < totalPages) {
