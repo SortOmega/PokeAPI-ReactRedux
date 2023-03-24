@@ -49,17 +49,26 @@ const PokePagination = () => {
   const searchPageHandler: MouseEventHandler = (_event) => {
     const Reset = () => {
       setInputPageValue(page.toString());
-      return;
     };
 
-    if (inputPageValue === '') Reset();
+    if (inputPageValue === '') {
+      Reset();
+      return;
+    }
 
     const newPage = parseInt(inputPageValue);
 
-    if (isNaN(newPage)) Reset();
+    if (isNaN(newPage)) {
+      Reset();
+      return;
+    }
+
+    if (newPage === page) {
+      Reset();
+      return;
+    }
 
     if (newPage >= 1 && newPage <= totalPages) {
-      //setInputPageValue(page.toString());
       dispatcher(getPokemons({ page: newPage }));
     } else Reset();
   }; //*/
